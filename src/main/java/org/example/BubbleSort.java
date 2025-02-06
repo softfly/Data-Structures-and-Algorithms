@@ -2,7 +2,7 @@ package org.example;
 
 public class BubbleSort {
 
-    public static int[] bubbleSort(int[] array) {
+    public static int[] sort(int[] array) {
         for (int passNumber = 0; passNumber < array.length - 1; passNumber++) {
             if (!performPass(array, passNumber)) {
                 break;
@@ -35,9 +35,9 @@ public class BubbleSort {
         return swapped;
     }
 
-    private static void swap(int[] array, int first, int second) {
-        int previous = array[first];
-        array[first] = array[second];
-        array[second] = previous;
+    private static void swap(int[] array, int firstIndex, int secondIndex) {
+        int previous = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = previous;
     }
 }

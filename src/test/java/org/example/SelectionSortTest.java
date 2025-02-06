@@ -10,12 +10,12 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class BubbleSortTest {
+public class SelectionSortTest {
 
     @ParameterizedTest
     @MethodSource("provideTestCases")
-    public void testBubbleSort(int[] input, int[] expected) {
-        var actual = BubbleSort.sort(input.clone());
+    public void testSelectionSort(int[] input, int[] expected) {
+        var actual = SelectionSort.sort(input.clone());
         try {
             assertArrayEquals(expected, actual);
         } catch (AssertionFailedError e) {
