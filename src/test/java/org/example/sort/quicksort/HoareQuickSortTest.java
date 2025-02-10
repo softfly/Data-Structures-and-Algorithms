@@ -1,5 +1,6 @@
-package org.example;
+package org.example.sort.quicksort;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,12 +11,13 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class BubbleSortTest {
+public class HoareQuickSortTest {
 
     @ParameterizedTest
     @MethodSource("provideTestCases")
-    public void testBubbleSort(int[] input, int[] expected) {
-        var actual = BubbleSort.sort(input.clone());
+    public void testQuickSort(int[] input, int[] expected) {
+        var actual = input.clone();
+        HoareQuickSort.quickSort(actual);
         try {
             assertArrayEquals(expected, actual);
         } catch (AssertionFailedError e) {
@@ -34,6 +36,24 @@ public class BubbleSortTest {
                 Arguments.of(new int[]{5}, new int[]{5}), // Single element
                 Arguments.of(new int[]{}, new int[]{}) // Empty array
         );
+    }
+
+    @Test
+    public void testPartition() {
+        var input = new int[]{3, 2, 1, 0, -1, -2, -3};
+
+        var actual = input.clone();
+        HoareQuickSort.hoarePartition(actual, 0, actual.length - 1);
+
+        var expected = new int[]{-1, -2, -3, 0, 3, 2, 1};
+        try {
+            assertArrayEquals(expected, actual);
+        } catch (AssertionFailedError e) {
+            System.out.println("Input:    " + Arrays.toString(input));
+            System.out.println("Expected: " + Arrays.toString(expected));
+            System.out.println("Actual:   " + Arrays.toString(actual));
+            throw e;
+        }
     }
 
 }

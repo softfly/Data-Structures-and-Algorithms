@@ -1,4 +1,4 @@
-package org.example;
+package org.example.search;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
