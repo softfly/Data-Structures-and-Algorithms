@@ -10,12 +10,12 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class MergeSortTest {
+public class RecursiveMergeSortTest {
 
     @ParameterizedTest
     @MethodSource("provideTestCases")
     public void testBubbleSort(int[] input, int[] expected) {
-        var actual = MergeSort.sort(input.clone());
+        var actual = RecursiveMergeSort.sort(input.clone());
         try {
             assertArrayEquals(expected, actual);
         } catch (AssertionFailedError e) {
