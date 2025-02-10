@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Arrays;
 
-public class QuickSort {
+public class LumotoQuickSort {
 
     public static void quickSort(int[] arr) {
         System.out.println("Start:          " + Arrays.toString(arr));

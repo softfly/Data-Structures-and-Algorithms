@@ -11,13 +11,13 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class QuickSortTest {
+public class LumutoQuickSortTest {
 
     @ParameterizedTest
     @MethodSource("provideTestCases")
     public void testQuickSort(int[] input, int[] expected) {
         var actual = input.clone();
-        QuickSort.quickSort(actual);
+        LumotoQuickSort.quickSort(actual);
         try {
             assertArrayEquals(expected, actual);
         } catch (AssertionFailedError e) {
@@ -30,11 +30,11 @@ public class QuickSortTest {
 
     private static Stream<Arguments> provideTestCases() {
         return Stream.of(
-                //Arguments.of(new int[]{-3, -2, -1, 0, 1, 2, 3}, new int[]{-3, -2, -1, 0, 1, 2, 3}), // Sorted
-                Arguments.of(new int[]{3, 2, 1, 0, -1, -2, -3}, new int[]{-3, -2, -1, 0, 1, 2, 3}) // Reversed
-                //Arguments.of(new int[]{2, 2, 1, 1, 0, -1, -2, -2}, new int[]{-2, -2, -1, 0, 1, 1, 2, 2}), // Duplicates
-                //Arguments.of(new int[]{5}, new int[]{5}), // Single element
-                //Arguments.of(new int[]{}, new int[]{}) // Empty array
+                Arguments.of(new int[]{-3, -2, -1, 0, 1, 2, 3}, new int[]{-3, -2, -1, 0, 1, 2, 3}), // Sorted
+                Arguments.of(new int[]{3, 2, 1, 0, -1, -2, -3}, new int[]{-3, -2, -1, 0, 1, 2, 3}), // Reversed
+                Arguments.of(new int[]{2, 2, 1, 1, 0, -1, -2, -2}, new int[]{-2, -2, -1, 0, 1, 1, 2, 2}), // Duplicates
+                Arguments.of(new int[]{5}, new int[]{5}), // Single element
+                Arguments.of(new int[]{}, new int[]{}) // Empty array
         );
     }
 
@@ -44,7 +44,7 @@ public class QuickSortTest {
         var pivot = 0;
 
         var actual = input.clone();
-        QuickSort.partition(actual, 0, actual.length - 1, pivot);
+        LumotoQuickSort.partition(actual, 0, actual.length - 1, pivot);
 
         var expected = new int[]{-1, -2, -3, 0, 3, 2, 1};
         try {
